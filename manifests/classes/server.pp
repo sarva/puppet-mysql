@@ -20,8 +20,9 @@ class mysql::server {
     require => Package["mysql-server"],
   }
 
-  package { "mysql-server":
+  package { $operatingsystem ? { Gentoo => mysql, default => "mysql-server" }:
     ensure => installed,
+    alias => "mysql-server"
   }
 
   file { "${mysql::params::data_dir}":
