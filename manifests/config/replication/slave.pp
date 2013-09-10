@@ -16,7 +16,7 @@ class mysql::config::replication::slave inherits mysql::config::replication {
 
   Mysql::Config['report-host'] {
     ensure => present,
-    value  => $hostname,
+    value  => $::hostname,
   }
 
   mysql::config {
