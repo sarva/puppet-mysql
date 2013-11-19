@@ -16,7 +16,7 @@ class mysql::administration (
     'RedHat' => '/etc/init.d/mysqld, /sbin/service mysqld',
   }
 
-  sudo::directive { 'mysql-administration':
+  sudo::conf { 'mysql-administration':
     ensure  => present,
     content => template('mysql/sudoers.mysql.erb'),
     require => Group['mysql-admin'],
